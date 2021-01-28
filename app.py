@@ -62,7 +62,7 @@ def webhook():
                         base1 = os.getcwd()
                         base_dir= base1 + "/"
                         data_path = base_dir + "preguntaciencia.txt"
-                        data_path2 = base_dir + "respuestacisncia.txt"
+                        data_path2 = base_dir + "respuestaciencia.txt"
                         # Defining lines as a list of each line
                         with open(data_path, 'r', encoding='utf-8') as f:
                           lines = f.read().split('\n')
@@ -80,7 +80,7 @@ def webhook():
                         target_docs = []
                         input_tokens = set()
                         target_tokens = set()
-                        for line in pairs[:556]:
+                        for line in pairs[:3000]:
                           input_doc, target_doc = line[0], line[1]
                           # Appending each input sentence to input_docs
                           input_docs.append(input_doc)
@@ -143,8 +143,8 @@ def webhook():
                         #Dimensionality
                         dimensionality = 256
                         #The batch size and number of epochs
-                        batch_size = 10
-                        epochs = 600
+                        batch_size = 15
+                        epochs = 1000
                         #Encoder
                         encoder_inputs = Input(shape=(None, num_encoder_tokens))
                         encoder_lstm = LSTM(dimensionality, return_state=True)
